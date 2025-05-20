@@ -1,6 +1,9 @@
 using BlazorApp5.Components;
+using Microsoft.AspNetCore.Connections;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddSingleton<ConnectionContext>();
 
 // Add services to the container.
 builder.Services.AddRazorComponents()

@@ -1,10 +1,11 @@
+using System.ComponentModel.DataAnnotations;
 using BlazorApp5.Enums;
 
 namespace BlazorApp5.Models;
 
 public class Service
 {
-    public int Id { get; set; }
+    [Key]public int Id { get; set; }
     public ServiceType ServiceType { get; set; }
     public DateOnly Date { get; set; }
     public TimeOnly Time { get; set; }
