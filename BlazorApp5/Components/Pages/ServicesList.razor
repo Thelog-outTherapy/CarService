@@ -1,6 +1,117 @@
 @page "/ServicesList"
-<h3>ServicesList</h3>
+@using BlazorApp5.Services
+@using DataBase
+@using Models.DAL.Models
+@rendermode InteractiveServer
+@inject CreateOrderService CreateOrderService
+
+<h3><b>Каталог услуг</b></h3>
+
+<div class="services">
+    <div style="display: flex; flex-direction: column">
+        <img class="images" alt="Not found" src="/images/AutopartsReplacement.jpg">
+        <p style="font-size: 14px; padding-left: 5px"><b>Замена автозапчатсей</b></p>
+        <p style="font-size: 12px; padding-left: 5px">Description</p>
+    </div>
+
+    <div style="display: flex; flex-direction: column">
+        <img class="images" alt="Not found" src="/images/EngineRepair.jpg">
+        <p style="font-size: 14px; padding-left: 5px"><b>Обслуживание и ремонт <br>двигателя</b></p>
+        <p style="font-size: 12px; padding-left: 5px">Description</p>
+    </div>
+
+    <div style="display: flex; flex-direction: column">
+        <img class="images" alt="Not found" src="/images/BatteryRepair.jpeg">
+        <p style="font-size: 14px; padding-left: 5px"><b>Ремонт аккумулятора</b></p>
+        <p style="font-size: 12px; padding-left: 5px">Description</p>
+    </div>
+
+    <div style="display: flex; flex-direction: column">
+        <img class="images" alt="Not found" src="/images/SuspensionRepair.jpg">
+        <p style="font-size: 14px; padding-left: 5px"><b>Ремонт задней и передней <br>подвески</b></p>
+        <p style="font-size: 12px; padding-left: 5px">Description</p>
+    </div>
+
+    <div style="display: flex; flex-direction: column">
+        <img class="images" alt="Not found" src="/images/TireService.jpg">
+        <p style="font-size: 14px; padding-left: 5px"><b>Шиномонтаж</b></p>
+        <p style="font-size: 12px; padding-left: 5px">Description</p>
+    </div>
+
+    <div style="display: flex; flex-direction: column">
+        <img class="images" alt="Not found" src="/images/CarBodyRepair.jpg">
+        <p style="font-size: 14px; padding-left: 5px"><b>Ремонт кузова</b></p>
+        <p style="font-size: 12px; padding-left: 5px">Description</p>
+    </div>
+
+    <div style="display: flex; flex-direction: column">
+        <img class="images" alt="Not found" src="/images/PowerSteeringRepair.jpg">
+        <p style="font-size: 14px; padding-left: 5px"><b>Ремонт системы рулевого <br>управления</b></p>
+        <p style="font-size: 12px; padding-left: 5px">Description</p>
+    </div>
+
+    <div style="display: flex; flex-direction: column">
+        <img class="images" alt="Not found" src="/images/CoolingSystemRepair.JPG">
+        <p style="font-size: 14px; padding-left: 5px"><b>Ремонт системы <br>охлаждения</b></p>
+        <p style="font-size: 12px; padding-left: 5px">Description</p>
+    </div>
+
+    <div style="display: flex; flex-direction: column">
+        <img class="images" alt="Not found" src="/images/Diagnostics.jpg">
+        <p style="font-size: 14px; padding-left: 5px"><b>Диагностика транспортного <br>средства</b></p>
+        <p style="font-size: 12px; padding-left: 5px">Description</p>
+    </div>
+
+    <div style="display: flex; flex-direction: column">
+        <img class="images" alt="Not found" src="/images/Painting.jpg">
+        <p style="font-size: 14px; padding-left: 5px"><b>Покраска транспортного <br>средства</b></p>
+        <p style="font-size: 12px; padding-left: 5px">Description</p>
+    </div>
+
+    <div style="display: flex; flex-direction: column">
+        <img class="images" alt="Not found" src="/images/ElecntronicsRepair.jpg">
+        <p style="font-size: 14px; padding-left: 5px"><b>Ремонт электрики <br>автомобиля</b></p>
+        <p style="font-size: 12px; padding-left: 5px">Description</p>
+    </div>
+
+    <div style="display: flex; flex-direction: column">
+        <img class="images" alt="Not found" src="/images/ExhaustSystemRepair.jpg">
+        <p style="font-size: 14px; padding-left: 5px"><b>Ремонт выхлопной <br>системы</b></p>
+        <p style="font-size: 12px; padding-left: 5px">Description</p>
+    </div>
+</div>
+
+<div style="border: 1px lightgray solid">
+    <h3>Запись на СТО</h3>
+    <p>Description</p> 
+    
+    <div class="input">
+        <div class="createOrder">
+            <input style="width: 200px; margin-top: 10px" type="text" placeholder="Имя" @bind="CreateOrderService.Name">
+            <input style="width: 200px; margin-top: 10px" type="text" placeholder="Фамилия" @bind="CreateOrderService.Surname">
+            <input style="width: 200px; margin-top: 10px" type="text" placeholder="Отчество" @bind="CreateOrderService.MiddleName">
+            <input style="width: 200px; margin-top: 10px" type="text" placeholder="Номер телефона" @bind="CreateOrderService.PhoneNumber">
+            <input style="width: 200px; margin-top: 10px" type="text" placeholder="Марка автомобиля" @bind="CreateOrderService.CarBrand">
+        </div>
+
+        <div class="createOrder">
+            <p>Выберите тип транспортного средства</p>
+            <select style="width: 200px">
+                <option>Легковой автомобиль</option>
+                <option>Грузовой автомобиль</option>
+                <option>Автобус</option>
+            </select>
+
+            <p>Выберите дату и время</p>
+            <input style="width: 200px" type="datetime-local">
+        </div>
+    </div>
+    
+    <button type="button" class="applyOrder" @onclick="() => CreateOrderService.CreateOrder(new Client(CreateOrderService.Name, CreateOrderService.Surname,
+        CreateOrderService.MiddleName, CreateOrderService.PhoneNumber, CreateOrderService.CarBrand))">Отправить заявку</button>
+</div>
 
 @code {
+
     
 }

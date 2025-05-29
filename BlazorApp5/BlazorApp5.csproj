@@ -7,7 +7,24 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Services\" />
+      <None Include="wwwroot\images\AutopartsReplacement.jpg" />
+      <None Include="wwwroot\images\BatteryRepair.jpeg" />
+      <None Include="wwwroot\images\CarBodyRepair.jpg" />
+      <None Include="wwwroot\images\CoolingSystemRepair.JPG" />
+      <None Include="wwwroot\images\Diagnostics.jpg" />
+      <None Include="wwwroot\images\EngineRepair.jpg" />
+      <None Include="wwwroot\images\Painting.jpg" />
+      <None Include="wwwroot\images\PowerSteeringRepair.jpg" />
+      <None Include="wwwroot\images\SuspensionRepair.jpg" />
+      <None Include="wwwroot\images\TireService.jpg" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\DataBase\DataBase.csproj" />
     </ItemGroup>
 
 </Project>

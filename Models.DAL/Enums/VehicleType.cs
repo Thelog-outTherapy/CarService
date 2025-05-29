@@ -4,6 +4,5 @@ public enum VehicleType
 {
     PassengerVehicle,
     Truck,
-    Van,
     Bus
 }

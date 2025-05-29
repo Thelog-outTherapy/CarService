@@ -1,9 +1,11 @@
 using BlazorApp5.Components;
-using Microsoft.AspNetCore.Connections;
+using BlazorApp5.Services;
+using DataBase;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddSingleton<ConnectionContext>();
+builder.Services.AddDbContext<DatabaseConnectionContext>();
+builder.Services.AddSingleton<CreateOrderService>();
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
